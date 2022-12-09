@@ -20,9 +20,9 @@
   },
   "homepage": "https://github.com/Valentin-Morette/template_bot_discord#readme",
   "dependencies": {
-    "axios": "^1.2.1",
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "xmlhttprequest": "^1.8.0"
   }
 }
