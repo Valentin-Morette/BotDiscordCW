@@ -6,9 +6,9 @@ CodewarsStatsBOT est un bot Discord qui permet aux utilisateurs de consulter leu
 
 Pour utiliser CodewarsStatsBOT, vous pouvez utiliser la commande suivante :
 
-    - !cw PseudoCodewars
+- !cw PseudoCodewars
 
-Cette commande affichera les informations sur le profil et le classement de l'utilisateur sur Codewars.
+Cette commande affichera les statistiques et le classement de l'utilisateur sur Codewars.
 
 ## Installation
 
