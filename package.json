@@ -22,7 +22,11 @@
   "dependencies": {
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
-    "nodemon": "^2.0.20",
+    "winston": "^3.8.2",
     "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "ts-node": "^10.9.2"
   }
 }

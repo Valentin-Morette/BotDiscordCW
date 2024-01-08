@@ -1,28 +1,28 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
-const discord_js_1 = require('discord.js');
+import { Message, Client, GatewayIntentBits } from 'discord.js';
 const dotenv = require('dotenv');
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-function capitalize(word) {
+
+function capitalize(word: string) {
 	return word.charAt(0).toUpperCase() + word.slice(1);
 }
-function compare(a, b) {
+
+function compare(a: any, b: any) {
 	if (a[1].score < b[1].score) return 1;
 	if (a[1].score > b[1].score) return -1;
 	return 0;
 }
+
 dotenv.config();
-const clientCw = new discord_js_1.Client({
-	intents: [
-		discord_js_1.GatewayIntentBits.Guilds,
-		discord_js_1.GatewayIntentBits.GuildMessages,
-		discord_js_1.GatewayIntentBits.MessageContent,
-	],
+
+const clientCw = new Client({
+	intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
 });
+
 clientCw.on('ready', () => {
 	console.log(`Bot CW Ready!`);
 });
-clientCw.on('messageCreate', (message) => {
+
+clientCw.on('messageCreate', (message: Message) => {
 	if (message.content === '!ping' && message.author.bot === false) {
 		message.channel.send('Pong.');
 	}
@@ -36,15 +36,16 @@ clientCw.on('messageCreate', (message) => {
 				if (xhr.readyState == 4 && xhr.status == 200) {
 					let response = JSON.parse(xhr.responseText);
 					let strScore = '';
-					let arr = [];
+					let arr: any = [];
 					for (const [key, value] of Object.entries(response.ranks.languages)) {
 						arr.push([key, value]);
 					}
 					arr.sort(compare);
-					let finalArr = arr.map((item) => {
-						return `\t- ${capitalize(item[0])} : ${item[1].score}` + '\n';
+					let finalArr = arr.map((item: any) => {
+						return `  •   ${capitalize(item[0])} : ${item[1].score}` + '\n';
 					});
-					finalArr.forEach((item) => {
+
+					finalArr.forEach((item: any) => {
 						strScore += item;
 					});
 					message.channel.send(
@@ -75,4 +76,5 @@ clientCw.on('messageCreate', (message) => {
 		fetchUser();
 	}
 });
+
 clientCw.login(process.env.TOKEN);
